@@ -1,9 +1,11 @@
-import { Source_Code_Pro } from 'next/font/google'
+import { Inter, Source_Code_Pro } from 'next/font/google'
 import '../globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
 import NavBar from './Components/NavBar'
+import {neobrutalism} from "@clerk/themes";
 
-const inter = Source_Code_Pro({ subsets: ['latin'] })
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Promtify',
@@ -14,8 +16,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-      <NavBar/>
-      <ClerkProvider>
+      <ClerkProvider
+      appearance={{
+        baseTheme: neobrutalism,
+      }}
+      >
+        <NavBar/>
         {children}
       </ClerkProvider>
       </body>
