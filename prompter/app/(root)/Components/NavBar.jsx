@@ -30,8 +30,8 @@ const NavBar = () => {
         </SignedOut>
         <SignedIn>
         <div className='flex items-center text-white'>
-          <Link href='dashboard' className=' hover:text-black mr-8'>
-            DashBoard
+          <Link href='create-post' className=' hover:text-black mr-8'>
+            Create Post
           </Link>
         <div className='mr-8'>
           <UserButton />
