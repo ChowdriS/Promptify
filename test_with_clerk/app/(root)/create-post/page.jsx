@@ -4,12 +4,15 @@ import { useState } from "react";
 // import {auth} from '@clerk/nextjs';
 import { useRouter } from "next/navigation";
 import Form from '../Components/Form';
+// import { currentUser } from "@clerk/nextjs";
+
 
 const CreatePost = () => {
 
   const router = useRouter();
-  // const { user } = auth();
-
+  // const {publicMetadata} =  currentUser();
+  // const user = await currentUser();
+  // console.log(user.username);
   const [submitting, setIsSubmitting] = useState(false);
   const [post, setPost] = useState({ prompt: "", tag: "" });
 
@@ -26,7 +29,7 @@ const CreatePost = () => {
           tag: post.tag,
         }),
       });
-      console.log("in form page")
+      console.log(response)
       if (response.ok) {
         router.push("/");
       }

@@ -1,12 +1,17 @@
-import Prompt from "../../../../models/prompt";
-import { connectToDB } from "../../../../utils/database";
+import Prompt from "../../../../../models/prompt";
+import { connectToDB } from "../../../../../utils/database";
 import { auth } from "@clerk/nextjs";
 import { currentUser } from '@clerk/nextjs';
 
 export const POST = async (request) => {
     // const user = auth();
+    // console.log(user.userId);
     const { publicMetadata } = await currentUser();
-    const username = publicMetadata.username;
+    // const user = await currentUser();
+    // const username = publicMetadata.username;
+
+    console.log(publicMetadata);
+    // console.log(user.username);
 
     const { prompt, tag } = await request.json();
 
@@ -15,7 +20,7 @@ export const POST = async (request) => {
         await connectToDB();
         // console.log("2")
         // try{
-        const newPrompt = new Prompt({ creator: username, prompt, tag });
+        const newPrompt = new Prompt({ creator: username , prompt, tag });
         // catch(err)  {console.log(err);}
         console.log("last")
         await newPrompt.save();

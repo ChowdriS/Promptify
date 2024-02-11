@@ -1,5 +1,5 @@
 import { Inter, Source_Code_Pro } from 'next/font/google'
-import '../globals.css'
+import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
 import NavBar from './Components/NavBar'
 import Feed from './Components/Feed'
